@@ -2,17 +2,18 @@ package cl.creyes.trivia.service;
 
 import java.util.List;
 
-import cl.creyes.trivia.model.User;
+import cl.creyes.trivia.model.Users;
 
 
 public interface UserService {
 
-	void save(User user);
+	void save(Users user);
 	
-	List<User> findAll();
+	List<Users> findAll();
 	
-	void update(User user);
+	void update(Users user);
 	
-	void delete(User user);
+	void delete(Users user);
 	
+	Users findByEmail(String email);
 }

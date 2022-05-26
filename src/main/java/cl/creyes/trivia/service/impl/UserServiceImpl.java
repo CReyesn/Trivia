@@ -2,33 +2,44 @@ package cl.creyes.trivia.service.impl;
 
 import java.util.List;
 
-import cl.creyes.trivia.model.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import cl.creyes.trivia.model.Users;
+import cl.creyes.trivia.repository.UserRepository;
 import cl.creyes.trivia.service.UserService;
 
+@Service
 public class UserServiceImpl implements UserService{
 
+	@Autowired
+	UserRepository userRepository;
+	
 	@Override
-	public void save(User user) {
-		// TODO Auto-generated method stub
+	public void save(Users user) {
+		userRepository.save(user);
+	}
+
+	@Override
+	public List<Users> findAll() {
+		return userRepository.findAll();
+	}
+
+	@Override
+	public void update(Users user) {
+		userRepository.save(user);
 		
 	}
 
 	@Override
-	public List<User> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+	public void delete(Users user) {
+		userRepository.delete(user);
 	}
 
 	@Override
-	public void update(User user) {
-		// TODO Auto-generated method stub
-		
-	}
+	public Users findByEmail(String email) {
 
-	@Override
-	public void delete(User user) {
-		// TODO Auto-generated method stub
-		
+		return userRepository.findByEmail(email);
 	}
 
 }
